@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module SprocketsIIFE
   class Processor
     VERSION = '1'

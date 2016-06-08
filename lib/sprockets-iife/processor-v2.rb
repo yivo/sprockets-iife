@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module SprocketsIIFE
   class Processor < Sprockets::Processor
     def evaluate(context, locals)

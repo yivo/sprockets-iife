@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module SprocketsIIFE
   class Railtie < Rails::Engine
     initializer :sprockets_iife do |app|
