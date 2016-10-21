@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.version         = SprocketsIIFE::VERSION
   s.author          = 'Yaroslav Konoplov'
   s.email           = 'eahome00@gmail.com'
-  s.summary         = 'sprockets-iife'
-  s.description     = 'sprockets-iife'
+  s.summary         = 'IIFE wrapper generator for Sprockets'
+  s.description     = 'Generates IIFE wrapper for Sprockets JavaScript bundles'
   s.homepage        = 'https://github.com/yivo/sprockets-iife'
   s.license         = 'MIT'
 
