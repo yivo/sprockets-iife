@@ -18,5 +18,5 @@ Gem::Specification.new do |s|
   s.test_files      = `git ls-files -z -- {test,spec,features}/*`.split("\x0")
   s.require_paths   = ['lib']
 
-  s.add_dependency 'sprockets', '~> 0'
+  s.add_dependency 'sprockets', '>= 2.0', '< 5.0'
 end
