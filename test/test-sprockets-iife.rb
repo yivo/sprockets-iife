@@ -66,6 +66,15 @@ class SprocketsIIFETest < Test::Unit::TestCase
       }).call(this);
     JAVASCRIPT
     assert_equal expected, app.assets['mixedbundle.js'].to_s.squish
+
+    expected = <<-JAVASCRIPT.squish
+      (function(/* foo-iife */) { 
+        (function(/* bar-iife */) { bar.js(); }).call(this);
+        baz.js();
+        foo.js();
+      }).call(this);
+    JAVASCRIPT
+    assert_equal expected, app.assets['nestedbundle.js'].to_s.squish
   end
 
   def setup
@@ -93,7 +102,7 @@ private
       config.assets.enabled = true
       config.assets.gzip = false
       config.assets.paths = [Rails.root.join('test/fixtures/javascripts').to_s]
-      config.assets.precompile = %w( jsbundle.js coffeebundle.js mixedbundle.js )
+      config.assets.precompile = %w( jsbundle.js coffeebundle.js mixedbundle.js nestedbundle.js )
       config.paths['public'] = [Rails.root.join('tmp').to_s]
       config.active_support.deprecation = :stderr
     end

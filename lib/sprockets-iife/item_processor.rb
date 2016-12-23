@@ -1,6 +1,8 @@
 # encoding: utf-8
 # frozen_string_literal: true
 
+require 'uri'
+
 module SprocketsIIFE
   class ItemProcessor
     def initialize(script_path, &block)
@@ -60,7 +62,7 @@ module SprocketsIIFE
               script_source
             else
               # noinspection RubyResolve
-              script_context.environment.load(uri)
+              script_context.environment[ URI(uri).path ]
             end
           end
 
