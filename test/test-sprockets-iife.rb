@@ -50,13 +50,19 @@ class SprocketsIIFETest < Test::Unit::TestCase
     expected = <<-JAVASCRIPT.squish
       (function(/* mixedbundle-iife */) {
         (function() { mixedbundle.coffee(); }).call(this);
+
         foo.js();
+
         (function(/* bar-iife */) {
-          (function() { bar.coffee(); }).call(this);
+          (function() { 
+            bar.coffee(); 
+          }).call(this);
+
+          (function(/* baz-iife */) { 
+            baz.js(); 
+          }).call(this);
         }).call(this);
-        (function(/* baz-iife */) {
-          baz.js();
-        }).call(this);
+
       }).call(this);
     JAVASCRIPT
     assert_equal expected, app.assets['mixedbundle.js'].to_s.squish
